@@ -18,7 +18,29 @@ defmodule MyEnum do
 
     each(tail, fun)
   end
-  # TODOs: filter, split and take
+
+  def filter([], _) do
+    []
+  end
+  def filter([head | tail], fun) do
+    if fun.(head) do
+      _filter(tail, fun, [])
+    else
+      _filter(tail, fun, [head])
+    end
+  end
+
+  defp _filter([], _, acc) do
+    acc
+  end
+  defp _filter([head | tail], fun, acc) do
+    if fun.(head) do
+      _filter(tail, fun, acc)
+    else
+      _filter(tail, fun, acc ++ [head])
+    end
+  end
+  # TODOs: split and take
 end
 
 even_fun = fn x ->
@@ -43,4 +65,12 @@ IO.inspect MyEnum.each([], puts_fun)
 IO.inspect MyEnum.each([1], puts_fun)
 IO.inspect MyEnum.each([2, 4, 6], puts_fun)
 IO.inspect MyEnum.each([2, 3, 4], puts_fun)
+IO.puts "---\n"
+
+IO.puts "MyEnum.filter"
+IO.puts "---"
+IO.inspect MyEnum.filter([], even_fun)
+IO.inspect MyEnum.filter([1], even_fun)
+IO.inspect MyEnum.filter([2, 4, 6], even_fun)
+IO.inspect MyEnum.filter([2, 3, 4], even_fun)
 IO.puts "---\n"
