@@ -66,7 +66,23 @@ defmodule MyEnum do
   defp _split(split_enum, enumerable, count) when count == 0 do
     {split_enum, enumerable}
   end
-  # TODOs: take
+
+  def take([], _amount), do: []
+  def take(_, 0), do: []
+  def take(enumerable, amount) when amount < 0 do
+    _take([], Enum.reverse(enumerable), amount * - 1)
+  end
+  def take(enumerable, amount) do
+    _take([], enumerable, amount)
+  end
+
+  defp _take(taken, _, 0) do
+    taken
+  end
+  defp _take(taken, [], _), do: taken
+  defp _take(taken, [head | tail], amount) do
+    _take(taken ++ [head], tail, amount - 1)
+  end
 end
 
 even_fun = fn x ->
@@ -108,4 +124,13 @@ IO.inspect MyEnum.split([1], 2)
 IO.inspect MyEnum.split([1, 2, 3], 2)
 IO.inspect MyEnum.split([2, 3, 4], -1)
 IO.inspect MyEnum.split([4, 6, 8], -5)
+IO.puts "---\n"
+
+IO.puts "MyEnum.take"
+IO.puts "---"
+IO.inspect MyEnum.take([], 2)
+IO.inspect MyEnum.take([1], 2)
+IO.inspect MyEnum.take([1, 2, 3], 2)
+IO.inspect MyEnum.take([2, 3, 4], -1)
+IO.inspect MyEnum.take([4, 6, 8], -5)
 IO.puts "---\n"
