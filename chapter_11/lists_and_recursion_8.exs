@@ -23,7 +23,7 @@ defmodule SalesCalculator do
     append_total_amount(order, total_amount)
   end
 
-  def append_total_amount(order, total_amount) do
+  defp append_total_amount(order, total_amount) do
     order ++ [
       total_amount: total_amount
     ]
