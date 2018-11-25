@@ -1,10 +1,10 @@
-#Try the following in IEX
+# Try the following in IEX
+# ['cat' | 'dog']
+# Why does IEx print 'cat' as a string, but 'dog' as indivual numbers?
 
 alias IEx.Info
 
 IO.inspect(['cat' | 'dog'])
-
-# Why does IEx print 'cat' as a string, but 'dog' as indivual numbers?
 [cat | dog] = ['cat' | 'dog']
 
 IO.puts("Cat inspect:")
