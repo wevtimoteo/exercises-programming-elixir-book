@@ -1,5 +1,23 @@
 styleguide: plataformatec/linters
 engines:
+  grep:
+    config:
+      patterns:
+        allowlist:
+          pattern: "/white[_\\-]?list/i"
+          annotation: Do not use 'Whitelist'. Prefer the term 'Allowlist'
+          categories: Style
+          path_patterns:
+          - "**/*.ex"
+          - "**/*.exs"
+        blocklist:
+          pattern: "/black[_\\-]?list/i"
+          annotation: Do not use 'Blacklist'. Prefer the term 'Blocklist'
+          categories: Style
+          path_patterns:
+          - "**/*.ex"
+          - "**/*.exs"
+    enabled: true
   credo:
     enabled: true
   fixme:
