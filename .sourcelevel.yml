@@ -20,8 +20,11 @@ engines:
     enabled: true
   credo:
     enabled: true
+    channel: latest
   fixme:
     enabled: true
+    channel: latest
   remark-lint:
     enabled: true
+    channel: latest
 exclude_paths: []
