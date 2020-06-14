@@ -1,4 +1,4 @@
-defmodule MyEnum do
+defmodule ExercisesProgrammingElixir.MyEnum do
   def all?([], _) do
     true
   end
@@ -84,53 +84,3 @@ defmodule MyEnum do
     _take(taken ++ [head], tail, amount - 1)
   end
 end
-
-even_fun = fn x ->
-  rem(x, 2) == 0
-end
-
-puts_fun = fn x ->
-  IO.puts "--> Inside fun: #{x}"
-end
-
-IO.puts "MyEnum.all?"
-IO.puts "---"
-IO.inspect MyEnum.all?([], even_fun)
-IO.inspect MyEnum.all?([1], even_fun)
-IO.inspect MyEnum.all?([2, 4, 6], even_fun)
-IO.inspect MyEnum.all?([2, 3, 4], even_fun)
-IO.puts "---\n"
-
-IO.puts "MyEnum.each"
-IO.puts "---"
-IO.inspect MyEnum.each([], puts_fun)
-IO.inspect MyEnum.each([1], puts_fun)
-IO.inspect MyEnum.each([2, 4, 6], puts_fun)
-IO.inspect MyEnum.each([2, 3, 4], puts_fun)
-IO.puts "---\n"
-
-IO.puts "MyEnum.filter"
-IO.puts "---"
-IO.inspect MyEnum.filter([], even_fun)
-IO.inspect MyEnum.filter([1], even_fun)
-IO.inspect MyEnum.filter([2, 4, 6], even_fun)
-IO.inspect MyEnum.filter([2, 3, 4], even_fun)
-IO.puts "---\n"
-
-IO.puts "MyEnum.split"
-IO.puts "---"
-IO.inspect MyEnum.split([], 2)
-IO.inspect MyEnum.split([1], 2)
-IO.inspect MyEnum.split([1, 2, 3], 2)
-IO.inspect MyEnum.split([2, 3, 4], -1)
-IO.inspect MyEnum.split([4, 6, 8], -5)
-IO.puts "---\n"
-
-IO.puts "MyEnum.take"
-IO.puts "---"
-IO.inspect MyEnum.take([], 2)
-IO.inspect MyEnum.take([1], 2)
-IO.inspect MyEnum.take([1, 2, 3], 2)
-IO.inspect MyEnum.take([2, 3, 4], -1)
-IO.inspect MyEnum.take([4, 6, 8], -5)
-IO.puts "---\n"
