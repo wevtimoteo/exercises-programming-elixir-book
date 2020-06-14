@@ -44,7 +44,7 @@ defmodule ExercisesProgrammingElixir.MyEnum do
   def split([], _) do
     []
   end
-  def split([element], count) do
+  def split([element], _count) do
     {[element], []}
   end
   def split(enumerable, count) when count < 0 do
