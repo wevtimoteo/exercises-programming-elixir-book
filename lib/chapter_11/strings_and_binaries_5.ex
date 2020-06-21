@@ -2,6 +2,7 @@ defmodule ExercisesProgrammingElixir.Centralizer do
   require Integer
 
   def center([]), do: ""
+  def center([word]), do: word
   def center(words) do
     _center(Enum.sort(words, &(String.length(&1) >= String.length(&2))), [])
   end
@@ -28,8 +29,10 @@ defmodule ExercisesProgrammingElixir.Centralizer do
   defp additional_spaces(word, max_length) do
     additional_spaces = ceil((max_length - String.length(word)) / 2)
 
-    if additional_spaces > 0 do
+    if additional_spaces > 1 do
       additional_spaces - 1
+    else
+      additional_spaces
     end
   end
 end
