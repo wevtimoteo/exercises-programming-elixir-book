@@ -12,9 +12,8 @@ defmodule ExercisesProgrammingElixir.Centralizer do
   end
   defp _center([], centered_words, _max_length) do
     centered = Enum.reverse(centered_words)
-               |> Enum.join("\n")
 
-    "#{centered}\n"
+    Enum.join(centered, "\n")
   end
   defp _center([word | tail], centered_words, max_length) do
     _center(tail, centered_words ++ [adjust_word(word, max_length)], max_length)

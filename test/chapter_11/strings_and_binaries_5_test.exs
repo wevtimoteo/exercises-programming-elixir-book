@@ -10,19 +10,19 @@ defmodule ExercisesProgrammingElixir.CentralizerTest do
     assert(Centralizer.center(["cat", "zebra", "elephant"]) == """
       cat
      zebra
-    elephant
+    elephant\
     """)
 
     assert(Centralizer.center(["elephant", "zebra", "cat"]) == """
       cat
      zebra
-    elephant
+    elephant\
     """)
 
     assert(Centralizer.center(["dog", "zebra", "cat"]) == """
      cat
      dog
-    zebra
+    zebra\
     """)
   end
 end
